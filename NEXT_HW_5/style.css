@@ -48,11 +48,7 @@ main {
     border-radius: 25px;
     flex-wrap: wrap; /* Allow items to wrap into multiple rows */
     position: relative;
-    margin: 8px 0;
-}
-
-.balance {
-    margin: 0;
+    margin: 5px 0;
 }
 
 .attribute {
@@ -136,4 +132,27 @@ footer > div {
 footer > div > div {
     font-size: 0.6em;
     margin-top: 15px;
+}
+
+.twobox {
+    display: flex;
+    width: 360px;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+.twobox > div {
+    display: flex;
+    width: 175px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    background-color: #e4e9ec;
+    border-radius: 25px;
+}
+
+.twobox > div > i {
+    margin-right: 5px;
+    margin-top: 0.5px;
 }
