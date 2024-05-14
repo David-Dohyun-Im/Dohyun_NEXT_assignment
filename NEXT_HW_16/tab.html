@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dynamic Banner Website</title>
+        <link rel="stylesheet" href="tab.css" />
+    </head>
+    <body>
+        <div class="banner" id="banner">
+            <h1 id="banner-title">About</h1>
+            <p id="banner-subtitle">Custom Software Development Company</p>
+        </div>
+        <nav>
+            <button onclick="changeBanner('About', 'Custom Software Development Company')">About</button>
+            <button onclick="changeBanner('Products', 'Our range of products')">Products</button>
+            <button onclick="changeBanner('Technology', 'Our technology stack')">Technology</button>
+            <button onclick="changeBanner('Downloads', 'Download our resources')">Downloads</button>
+        </nav>
+        <script src="main.js"></script>
+    </body>
+</html>
