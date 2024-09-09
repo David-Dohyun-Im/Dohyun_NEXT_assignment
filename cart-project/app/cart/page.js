@@ -1,30 +1,22 @@
 // app/cart/page.js
 'use client';
-import { useCart } from '../../contexts/CartContext';
+import useCartStore from '../../stores/cartStore';
 import Link from 'next/link';
 
 export default function Cart() {
-    const { cart, dispatch } = useCart();
+    const { items, removeItem, updateQuantity } = useCartStore();
 
-    const removeFromCart = (id) => {
-        dispatch({ type: 'REMOVE_FROM_CART', payload: id });
-    };
-
-    const updateQuantity = (id, quantity) => {
-        dispatch({ type: 'UPDATE_QUANTITY', payload: { id, quantity } });
-    };
-
-    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
     return (
         <div>
             <h1 className="text-2xl font-bold mb-4">장바구니</h1>
-            {cart.length === 0 ? (
+            {items.length === 0 ? (
                 <p>장바구니가 비어있습니다.</p>
             ) : (
                 <>
                     <ul className="space-y-4">
-                        {cart.map((item) => (
+                        {items.map((item) => (
                             <li key={item.id} className="border p-4 rounded">
                                 <h2 className="text-xl">{item.name}</h2>
                                 <p>
@@ -39,7 +31,7 @@ export default function Cart() {
                                     = {item.price * item.quantity}원
                                 </p>
                                 <button
-                                    onClick={() => removeFromCart(item.id)}
+                                    onClick={() => removeItem(item.id)}
                                     className="mt-2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
                                 >
                                     삭제

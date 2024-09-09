@@ -1,6 +1,6 @@
 // app/page.js
 'use client';
-import { useCart } from '../contexts/CartContext';
+import useCartStore from '../stores/cartStore';
 import Link from 'next/link';
 
 const products = [
@@ -10,11 +10,7 @@ const products = [
 ];
 
 export default function Home() {
-    const { dispatch } = useCart();
-
-    const addToCart = (product) => {
-        dispatch({ type: 'ADD_TO_CART', payload: product });
-    };
+    const addItem = useCartStore((state) => state.addItem);
 
     return (
         <div>
@@ -25,7 +21,7 @@ export default function Home() {
                         <h2 className="text-xl">{product.name}</h2>
                         <p>{product.price}원</p>
                         <button
-                            onClick={() => addToCart(product)}
+                            onClick={() => addItem(product)}
                             className="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
                         >
                             장바구니에 추가
