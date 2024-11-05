@@ -1,0 +1,44 @@
+### 모든 책 조회
+GET http://localhost:3000/books
+Accept: application/json
+
+###
+
+### 특정 책 조회 (ID: 1)
+GET http://localhost:3000/books/1
+Accept: application/json
+
+###
+
+### 새로운 책 추가
+POST http://localhost:3000/books
+Content-Type: application/json
+
+{
+  "title": "데미안",
+  "author": "헤르만 헤세",
+  "isAvailable": true
+}
+
+###
+
+### 책 정보 수정 (ID: 1)
+PUT http://localhost:3000/books/1
+Content-Type: application/json
+
+{
+  "title": "넥서스스스 스퍼노바",
+  "author": "유발 하라리",
+  "isAvailable": false
+}
+
+###
+
+### 책 삭제 (ID: 1)
+DELETE http://localhost:3000/books/1
+
+###
+
+### 삭제 후 모든 책 조회
+GET http://localhost:3000/books
+Accept: application/json
